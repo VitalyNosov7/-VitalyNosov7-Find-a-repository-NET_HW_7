@@ -1,0 +1,227 @@
+dbug: 10.12.2023 17:15:01.040 CoreEventId.MultipleNavigationProperties[10607] (Microsoft.EntityFrameworkCore.Model) 
+      No relationship from 'Message' to 'User' has been configured by convention because there are multiple properties on one entity type - {'FromUser', 'ToUser'} that could be matched with the properties on the other entity type - {'FromMessages', 'ToMessage'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+dbug: 10.12.2023 17:15:01.057 CoreEventId.MultipleNavigationProperties[10607] (Microsoft.EntityFrameworkCore.Model) 
+      No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'FromMessages', 'ToMessage'} that could be matched with the properties on the other entity type - {'FromUser', 'ToUser'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+dbug: 10.12.2023 17:15:01.179 CoreEventId.MultipleNavigationProperties[10607] (Microsoft.EntityFrameworkCore.Model) 
+      No relationship from 'Message' to 'User' has been configured by convention because there are multiple properties on one entity type - {'FromUser', 'ToUser'} that could be matched with the properties on the other entity type - {'FromMessages', 'ToMessage'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+dbug: 10.12.2023 17:15:01.181 CoreEventId.MultipleNavigationProperties[10607] (Microsoft.EntityFrameworkCore.Model) 
+      No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'FromMessages', 'ToMessage'} that could be matched with the properties on the other entity type - {'FromUser', 'ToUser'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+dbug: 10.12.2023 17:15:01.562 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 7.0.14 initialized 'MessageContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:7.0.11+c25a0d7b68d66c6ab3849a3b4333964faea6adc9' with options: using lazy loading proxies 
+dbug: 10.12.2023 17:15:01.584 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<User>()
+          .Count()'
+dbug: 10.12.2023 17:15:01.736 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<int>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.QueryExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> 0
+              SELECT CAST(count(*) AS integer)
+              FROM users AS u), 
+          null, 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, int>, 
+          Chat.Models.MessageContext, 
+          False, 
+          False, 
+          True
+      )
+          .Single()'
+dbug: 10.12.2023 17:15:01.762 RelationalEventId.ConnectionCreating[20005] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Creating DbConnection.
+dbug: 10.12.2023 17:15:01.821 RelationalEventId.ConnectionCreated[20006] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Created DbConnection. (59ms).
+dbug: 10.12.2023 17:15:01.822 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 10.12.2023 17:15:01.827 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (67ms).
+dbug: 10.12.2023 17:15:01.828 RelationalEventId.CommandInitialized[20106] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Initialized DbCommand for 'ExecuteReader' (70ms).
+dbug: 10.12.2023 17:15:01.830 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'test3' on server ''.
+dbug: 10.12.2023 17:15:02.011 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.015 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM users AS u
+info: 10.12.2023 17:15:02.099 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (85ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM users AS u
+dbug: 10.12.2023 17:15:02.106 RelationalEventId.DataReaderClosing[20301] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Closing data reader to 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.112 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader for 'test3' on server 'tcp://localhost:5432' is being disposed after spending 9ms reading results.
+dbug: 10.12.2023 17:15:02.114 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.118 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'test3' on server '' (3ms).
+dbug: 10.12.2023 17:15:02.126 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<User>()
+          .FirstOrDefault(x => x.Name == "Вася")'
+dbug: 10.12.2023 17:15:02.274 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<User>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.QueryExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.Name (string) MaxLength(255), 1] }
+              SELECT TOP(1) u.id, u.name
+              FROM users AS u
+              WHERE u.name == 'Вася'), 
+          null, 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+          Chat.Models.MessageContext, 
+          False, 
+          False, 
+          True
+      )
+          .SingleOrDefault()'
+dbug: 10.12.2023 17:15:02.283 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 10.12.2023 17:15:02.283 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 10.12.2023 17:15:02.283 RelationalEventId.CommandInitialized[20106] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Initialized DbCommand for 'ExecuteReader' (0ms).
+dbug: 10.12.2023 17:15:02.283 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'test3' on server ''.
+dbug: 10.12.2023 17:15:02.283 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.283 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT u.id, u.name
+      FROM users AS u
+      WHERE u.name = 'Вася'
+      LIMIT 1
+info: 10.12.2023 17:15:02.284 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT u.id, u.name
+      FROM users AS u
+      WHERE u.name = 'Вася'
+      LIMIT 1
+dbug: 10.12.2023 17:15:02.325 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'MessageContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 10.12.2023 17:15:02.337 RelationalEventId.DataReaderClosing[20301] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Closing data reader to 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.337 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader for 'test3' on server 'tcp://localhost:5432' is being disposed after spending 52ms reading results.
+dbug: 10.12.2023 17:15:02.337 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.337 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'test3' on server '' (0ms).
+dbug: 10.12.2023 17:15:02.338 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<User>()
+          .FirstOrDefault(x => x.Name == "Юля")'
+dbug: 10.12.2023 17:15:02.341 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<User>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.QueryExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.Name (string) MaxLength(255), 1] }
+              SELECT TOP(1) u.id, u.name
+              FROM users AS u
+              WHERE u.name == 'Юля'), 
+          null, 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+          Chat.Models.MessageContext, 
+          False, 
+          False, 
+          True
+      )
+          .SingleOrDefault()'
+dbug: 10.12.2023 17:15:02.341 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 10.12.2023 17:15:02.341 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 10.12.2023 17:15:02.341 RelationalEventId.CommandInitialized[20106] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Initialized DbCommand for 'ExecuteReader' (0ms).
+dbug: 10.12.2023 17:15:02.341 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'test3' on server ''.
+dbug: 10.12.2023 17:15:02.341 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.341 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT u.id, u.name
+      FROM users AS u
+      WHERE u.name = 'Юля'
+      LIMIT 1
+info: 10.12.2023 17:15:02.341 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT u.id, u.name
+      FROM users AS u
+      WHERE u.name = 'Юля'
+      LIMIT 1
+dbug: 10.12.2023 17:15:02.344 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'MessageContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: 10.12.2023 17:15:02.344 RelationalEventId.DataReaderClosing[20301] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Closing data reader to 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.344 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader for 'test3' on server 'tcp://localhost:5432' is being disposed after spending 2ms reading results.
+dbug: 10.12.2023 17:15:02.344 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.344 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'test3' on server '' (0ms).
+dbug: 10.12.2023 17:15:02.364 CoreEventId.NavigationLazyLoading[10406] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      The navigation 'UserProxy.FromMessages' is being lazy-loaded.
+dbug: 10.12.2023 17:15:02.383 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Message>()
+          .Where(e => EF.Property<int?>(e, "FromUserId") == __p_0)
+          .AsTracking()'
+dbug: 10.12.2023 17:15:02.399 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Message>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.QueryExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Message.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Message.DateMessage (DateTime) Required, 1], [Property: Message.FromUserId (int?) FK Index, 2], [Property: Message.IsReceived (bool) Required, 3], [Property: Message.Text (string), 4], [Property: Message.ToUserId (int?) FK Index, 5] }
+              SELECT m.id, m.DateMessage, m.from_user_id, m.IsReceived, m.text, m.to_user_id
+              FROM Messages AS m
+              WHERE m.from_user_id == @__p_0), 
+          null, 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Message>, 
+          Chat.Models.MessageContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: 10.12.2023 17:15:02.401 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 10.12.2023 17:15:02.401 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+dbug: 10.12.2023 17:15:02.403 RelationalEventId.CommandInitialized[20106] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Initialized DbCommand for 'ExecuteReader' (1ms).
+dbug: 10.12.2023 17:15:02.403 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'test3' on server ''.
+dbug: 10.12.2023 17:15:02.403 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.404 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT m.id, m."DateMessage", m.from_user_id, m."IsReceived", m.text, m.to_user_id
+      FROM "Messages" AS m
+      WHERE m.from_user_id = @__p_0
+info: 10.12.2023 17:15:02.418 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT m.id, m."DateMessage", m.from_user_id, m."IsReceived", m.text, m.to_user_id
+      FROM "Messages" AS m
+      WHERE m.from_user_id = @__p_0
+dbug: 10.12.2023 17:15:02.418 RelationalEventId.DataReaderClosing[20301] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Closing data reader to 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.418 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader for 'test3' on server 'tcp://localhost:5432' is being disposed after spending 0ms reading results.
+dbug: 10.12.2023 17:15:02.418 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'test3' on server 'tcp://localhost:5432'.
+dbug: 10.12.2023 17:15:02.418 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'test3' on server '' (0ms).
+dbug: 10.12.2023 17:15:02.436 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'MessageContext' disposed.
+dbug: 10.12.2023 17:15:02.438 RelationalEventId.ConnectionDisposing[20007] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Disposing connection to database 'test3' on server ''.
+dbug: 10.12.2023 17:15:02.439 RelationalEventId.ConnectionDisposed[20008] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Disposed connection to database 'test3' on server '' (0ms).
